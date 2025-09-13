@@ -1,0 +1,198 @@
+{
+  "main": {
+    "id": "bb53b2339f960ef0",
+    "type": "split",
+    "children": [
+      {
+        "id": "85ed68098a77396a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "66916610c18d3ecc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "learning-examples/interfaces-not-implementations/program-to-interface.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "program-to-interface"
+            }
+          },
+          {
+            "id": "f1489179805764e8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "umldiagrams/mermaid-uml-guide.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "mermaid-uml-guide"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "edb61489e0fb633a",
+    "type": "split",
+    "children": [
+      {
+        "id": "a28cfba8243ddd71",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "adf370aac6092ed8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "850e2415e357677a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "051d3ba190778610",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "2c3a6228830946bc",
+    "type": "split",
+    "children": [
+      {
+        "id": "62622520a60309e5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8f674d2fd43c56e3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "umldiagrams/mermaid-uml-guide.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for mermaid-uml-guide"
+            }
+          },
+          {
+            "id": "ab9a136012710d39",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "umldiagrams/mermaid-uml-guide.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from mermaid-uml-guide"
+            }
+          },
+          {
+            "id": "df5fe20ecee975e4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "76dd433cc2a38475",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "umldiagrams/mermaid-uml-guide.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of mermaid-uml-guide"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "f1489179805764e8",
+  "lastOpenFiles": [
+    "umldiagrams/mermaid-layout-organization.md",
+    "learning-examples/strategy-pattern/factory_vs_strategy_demo.py",
+    "learning-examples/strategy-pattern/factory-vs-strategy.md",
+    "learning-examples/strategy-pattern/navigation_app.py",
+    "learning-examples/strategy-pattern/README.md",
+    "learning-examples/strategy-pattern",
+    "learning-examples/interfaces-not-implementations/program-to-interface.md"
+  ]
+}

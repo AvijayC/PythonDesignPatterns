@@ -1,0 +1,461 @@
+digraph Combined_SQL_AST {
+	fontsize=16 fontweight=bold label="Combined SQL Analysis"
+	bgcolor=white rankdir=TB
+	node [fontname=Arial shape=box style="rounded,filled"]
+	edge [fontname=Arial fontsize=10]
+	subgraph cte_analysis {
+		label="Query:      WITH customer_stats AS (         SELECT customer_id, COUNT(*) as order_count         FROM order..."
+		bgcolor="#f9f9f9" color="#666666" style="rounded,filled"
+		node_0 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+		node_1 [label="Star\n*" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_0 -> node_1
+		node_2 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_0 -> node_2
+		node_3 [label="Table\ncustomer_stats" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+		node_2 -> node_3
+		node_4 [label="Identifier\ncustomer_stats" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_3 -> node_4
+		node_5 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+		node_0 -> node_5
+		node_6 [label="GT\norder_count > 5" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_5 -> node_6
+		node_7 [label="Column\norder_count" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_6 -> node_7
+		node_8 [label="Identifier\norder_count" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_7 -> node_8
+		node_9 [label="Literal\n5" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_6 -> node_9
+		node_10 [label="With\nWITH customer_stats AS (SELECT..." fillcolor="#E6E6E6" shape=component style="rounded,filled"]
+		node_0 -> node_10
+		node_11 [label="CTE\ncustomer_stats AS (SELECT cust..." fillcolor="#B0C4DE" shape=component style="rounded,filled"]
+		node_10 -> node_11
+		node_12 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+		node_11 -> node_12
+		node_13 [label="Column\ncustomer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_12 -> node_13
+		node_14 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_13 -> node_14
+		node_15 [label="Alias\nCOUNT(*) AS order_count" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_12 -> node_15
+		node_16 [label="Count\nCOUNT(*)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+		node_15 -> node_16
+		node_17 [label="Star\n*" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_16 -> node_17
+		node_18 [label="Identifier\norder_count" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_15 -> node_18
+		node_19 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_12 -> node_19
+		node_20 [label="Table\norders\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+		node_19 -> node_20
+		node_21 [label="Identifier\norders" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_20 -> node_21
+		node_22 [label="Group\nGROUP BY ..." fillcolor="#FFB6C1" shape=box style="rounded,filled"]
+		node_12 -> node_22
+		node_23 [label="Column\ncustomer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_22 -> node_23
+		node_24 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_23 -> node_24
+		node_25 [label="TableAlias\ncustomer_stats" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_11 -> node_25
+		node_26 [label="Identifier\ncustomer_stats" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_25 -> node_26
+	}
+	subgraph aggregation_analysis {
+		label="Query:  SELECT     c.customer_name,     COUNT(DISTINCT o.order_id) as total_orders,     SUM(oi.quantity * p..."
+		bgcolor="#f9f9f9" color="#666666" style="rounded,filled"
+		aggregation_analysis_error [label="⚠️ Invalid columns: customers(total_spent) " fillcolor="#FFD700" shape=note style=filled]
+		node_27 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+		node_28 [label="Column\nc.customer_name" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_27 -> node_28
+		node_29 [label="Identifier\ncustomer_name" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_28 -> node_29
+		node_30 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_28 -> node_30
+		node_31 [label="Alias\nCOUNT(DISTINCT o.order_id) AS ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_27 -> node_31
+		node_32 [label="Count\nCOUNT(DISTINCT o.order_id)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+		node_31 -> node_32
+		node_33 [label="Distinct\nDISTINCT o.order_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_32 -> node_33
+		node_34 [label="Column\no.order_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_33 -> node_34
+		node_35 [label="Identifier\norder_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_34 -> node_35
+		node_36 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_34 -> node_36
+		node_37 [label="Identifier\ntotal_orders" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_31 -> node_37
+		node_38 [label="Alias\nSUM(oi.quantity * p.unit_price..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_27 -> node_38
+		node_39 [label="Sum\nSUM(oi.quantity * p.unit_price..." fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+		node_38 -> node_39
+		node_40 [label="Mul\noi.quantity * p.unit_price" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_39 -> node_40
+		node_41 [label="Column\noi.quantity" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_40 -> node_41
+		node_42 [label="Identifier\nquantity" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_41 -> node_42
+		node_43 [label="Identifier\noi" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_41 -> node_43
+		node_44 [label="Column\np.unit_price" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_40 -> node_44
+		node_45 [label="Identifier\nunit_price" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_44 -> node_45
+		node_46 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_44 -> node_46
+		node_47 [label="Identifier\ntotal_spent" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_38 -> node_47
+		node_48 [label="Alias\nAVG(oi.quantity * p.unit_price..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_27 -> node_48
+		node_49 [label="Avg\nAVG(oi.quantity * p.unit_price..." fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+		node_48 -> node_49
+		node_50 [label="Mul\noi.quantity * p.unit_price" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_49 -> node_50
+		node_51 [label="Column\noi.quantity" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_50 -> node_51
+		node_52 [label="Identifier\nquantity" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_51 -> node_52
+		node_53 [label="Identifier\noi" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_51 -> node_53
+		node_54 [label="Column\np.unit_price" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_50 -> node_54
+		node_55 [label="Identifier\nunit_price" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_54 -> node_55
+		node_56 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_54 -> node_56
+		node_57 [label="Identifier\navg_order_value" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_48 -> node_57
+		node_58 [label="Alias\nMAX(o.order_date) AS last_orde..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_27 -> node_58
+		node_59 [label="Max\nMAX(o.order_date)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+		node_58 -> node_59
+		node_60 [label="Column\no.order_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_59 -> node_60
+		node_61 [label="Identifier\norder_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_60 -> node_61
+		node_62 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_60 -> node_62
+		node_63 [label="Identifier\nlast_order_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_58 -> node_63
+		node_64 [label="Limit\nLIMIT 100" fillcolor="#E0FFFF" shape=box style="rounded,filled"]
+		node_27 -> node_64
+		node_65 [label="Literal\n100" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_64 -> node_65
+		node_66 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_27 -> node_66
+		node_67 [label="Table\ncustomers AS c\n[8 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+		node_66 -> node_67
+		node_68 [label="Identifier\ncustomers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_67 -> node_68
+		node_69 [label="TableAlias\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_67 -> node_69
+		node_70 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_69 -> node_70
+		node_71 [label="Join\nLEFT JOIN orders AS o ON c.cus..." fillcolor="#F08080" shape=box style="rounded,filled"]
+		node_27 -> node_71
+		node_72 [label="Table\norders AS o\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+		node_71 -> node_72
+		node_73 [label="Identifier\norders" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_72 -> node_73
+		node_74 [label="TableAlias\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_72 -> node_74
+		node_75 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_74 -> node_75
+		node_76 [label="EQ\nc.customer_id = o.customer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_71 -> node_76
+		node_77 [label="Column\nc.customer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_76 -> node_77
+		node_78 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_77 -> node_78
+		node_79 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_77 -> node_79
+		node_80 [label="Column\no.customer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_76 -> node_80
+		node_81 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_80 -> node_81
+		node_82 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_80 -> node_82
+		node_83 [label="Join\nLEFT JOIN order_items AS oi ON..." fillcolor="#F08080" shape=box style="rounded,filled"]
+		node_27 -> node_83
+		node_84 [label="Table\norder_items AS oi\n[7 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+		node_83 -> node_84
+		node_85 [label="Identifier\norder_items" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_84 -> node_85
+		node_86 [label="TableAlias\noi" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_84 -> node_86
+		node_87 [label="Identifier\noi" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_86 -> node_87
+		node_88 [label="EQ\no.order_id = oi.order_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_83 -> node_88
+		node_89 [label="Column\no.order_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_88 -> node_89
+		node_90 [label="Identifier\norder_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_89 -> node_90
+		node_91 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_89 -> node_91
+		node_92 [label="Column\noi.order_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_88 -> node_92
+		node_93 [label="Identifier\norder_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_92 -> node_93
+		node_94 [label="Identifier\noi" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_92 -> node_94
+		node_95 [label="Join\nLEFT JOIN products AS p ON oi...." fillcolor="#F08080" shape=box style="rounded,filled"]
+		node_27 -> node_95
+		node_96 [label="Table\nproducts AS p\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+		node_95 -> node_96
+		node_97 [label="Identifier\nproducts" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_96 -> node_97
+		node_98 [label="TableAlias\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_96 -> node_98
+		node_99 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_98 -> node_99
+		node_100 [label="EQ\noi.product_id = p.product_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_95 -> node_100
+		node_101 [label="Column\noi.product_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_100 -> node_101
+		node_102 [label="Identifier\nproduct_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_101 -> node_102
+		node_103 [label="Identifier\noi" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_101 -> node_103
+		node_104 [label="Column\np.product_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_100 -> node_104
+		node_105 [label="Identifier\nproduct_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_104 -> node_105
+		node_106 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_104 -> node_106
+		node_107 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+		node_27 -> node_107
+		node_108 [label="And\nc.country = 'USA' AND o.order_..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_107 -> node_108
+		node_109 [label="EQ\nc.country = 'USA'" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_108 -> node_109
+		node_110 [label="Column\nc.country" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_109 -> node_110
+		node_111 [label="Identifier\ncountry" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_110 -> node_111
+		node_112 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_110 -> node_112
+		node_113 [label="Literal\nUSA" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_109 -> node_113
+		node_114 [label="GTE\no.order_date >= '2024-01-01'" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_108 -> node_114
+		node_115 [label="Column\no.order_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_114 -> node_115
+		node_116 [label="Identifier\norder_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_115 -> node_116
+		node_117 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_115 -> node_117
+		node_118 [label="Literal\n2024-01-01" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_114 -> node_118
+		node_119 [label="Group\nGROUP BY ..." fillcolor="#FFB6C1" shape=box style="rounded,filled"]
+		node_27 -> node_119
+		node_120 [label="Column\nc.customer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_119 -> node_120
+		node_121 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_120 -> node_121
+		node_122 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_120 -> node_122
+		node_123 [label="Column\nc.customer_name" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_119 -> node_123
+		node_124 [label="Identifier\ncustomer_name" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_123 -> node_124
+		node_125 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_123 -> node_125
+		node_126 [label="Having\nHAVING SUM(oi.quantity * p.uni..." fillcolor="#FAFAD2" shape=box style="rounded,filled"]
+		node_27 -> node_126
+		node_127 [label="GT\nSUM(oi.quantity * p.unit_price..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_126 -> node_127
+		node_128 [label="Sum\nSUM(oi.quantity * p.unit_price..." fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+		node_127 -> node_128
+		node_129 [label="Mul\noi.quantity * p.unit_price" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_128 -> node_129
+		node_130 [label="Column\noi.quantity" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_129 -> node_130
+		node_131 [label="Identifier\nquantity" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_130 -> node_131
+		node_132 [label="Identifier\noi" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_130 -> node_132
+		node_133 [label="Column\np.unit_price" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_129 -> node_133
+		node_134 [label="Identifier\nunit_price" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_133 -> node_134
+		node_135 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_133 -> node_135
+		node_136 [label="Literal\n1000" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_127 -> node_136
+		node_137 [label="Order\nORDER BY ..." fillcolor="#E6E6FA" shape=box style="rounded,filled"]
+		node_27 -> node_137
+		node_138 [label="Ordered\ntotal_spent DESC" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_137 -> node_138
+		node_139 [label="Column\ntotal_spent" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_138 -> node_139
+		node_140 [label="Identifier\ntotal_spent" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_139 -> node_140
+	}
+	subgraph window_analysis {
+		label="Query:  SELECT     product_category,     product_name,     sale_date,     sale_amount,     -- Running total..."
+		bgcolor="#f9f9f9" color="#666666" style="rounded,filled"
+		window_analysis_error [label="⚠️ Invalid columns: sales(product_category, product_name, product_category, product_category, product_category, product_category, product_category) " fillcolor="#FFD700" shape=note style=filled]
+		node_141 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+		node_142 [label="Column\nproduct_category" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_141 -> node_142
+		node_143 [label="Identifier\nproduct_category" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_142 -> node_143
+		node_144 [label="Column\nproduct_name" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_141 -> node_144
+		node_145 [label="Identifier\nproduct_name" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_144 -> node_145
+		node_146 [label="Column\nsale_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_141 -> node_146
+		node_147 [label="Identifier\nsale_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_146 -> node_147
+		node_148 [label="Column\nsale_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_141 -> node_148
+		node_149 [label="Identifier\nsale_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_148 -> node_149
+		node_150 [label="Alias\nSUM(sale_amount) OVER (PARTITI..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_141 -> node_150
+		node_151 [label="Window\nSUM(sale_amount) OVER (PARTITI..." fillcolor="#F0E68C" shape=box style="rounded,filled"]
+		node_150 -> node_151
+		node_152 [label="Sum\nSUM(sale_amount)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+		node_151 -> node_152
+		node_153 [label="Column\nsale_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_152 -> node_153
+		node_154 [label="Identifier\nsale_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_153 -> node_154
+		node_155 [label="Column\nproduct_category" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_151 -> node_155
+		node_156 [label="Identifier\nproduct_category" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_155 -> node_156
+		node_157 [label="Order\nORDER BY ..." fillcolor="#E6E6FA" shape=box style="rounded,filled"]
+		node_151 -> node_157
+		node_158 [label="Ordered\nsale_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_157 -> node_158
+		node_159 [label="Column\nsale_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_158 -> node_159
+		node_160 [label="Identifier\nsale_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_159 -> node_160
+		node_161 [label="WindowSpec\nROWS BETWEEN UNBOUNDED PRECEDI..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_151 -> node_161
+		node_162 [label="Identifier\nrunning_total" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_150 -> node_162
+		node_163 [label="Alias\nRANK() OVER (PARTITION BY prod..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_141 -> node_163
+		node_164 [label="Window\nRANK() OVER (PARTITION BY prod..." fillcolor="#F0E68C" shape=box style="rounded,filled"]
+		node_163 -> node_164
+		node_165 [label="Anonymous\nRANK()" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_164 -> node_165
+		node_166 [label="Column\nproduct_category" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_164 -> node_166
+		node_167 [label="Identifier\nproduct_category" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_166 -> node_167
+		node_168 [label="Order\nORDER BY ..." fillcolor="#E6E6FA" shape=box style="rounded,filled"]
+		node_164 -> node_168
+		node_169 [label="Ordered\nsale_amount DESC" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_168 -> node_169
+		node_170 [label="Column\nsale_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_169 -> node_170
+		node_171 [label="Identifier\nsale_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_170 -> node_171
+		node_172 [label="Identifier\nsales_rank" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_163 -> node_172
+		node_173 [label="Alias\nsale_amount /* Percentage of c..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_141 -> node_173
+		node_174 [label="Mul\nsale_amount /* Percentage of c..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_173 -> node_174
+		node_175 [label="Div\nsale_amount /* Percentage of c..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_174 -> node_175
+		node_176 [label="Column\nsale_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_175 -> node_176
+		node_177 [label="Identifier\nsale_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_176 -> node_177
+		node_178 [label="Window\nSUM(sale_amount) OVER (PARTITI..." fillcolor="#F0E68C" shape=box style="rounded,filled"]
+		node_175 -> node_178
+		node_179 [label="Sum\nSUM(sale_amount)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+		node_178 -> node_179
+		node_180 [label="Column\nsale_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_179 -> node_180
+		node_181 [label="Identifier\nsale_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_180 -> node_181
+		node_182 [label="Column\nproduct_category" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_178 -> node_182
+		node_183 [label="Identifier\nproduct_category" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_182 -> node_183
+		node_184 [label="Literal\n100" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_174 -> node_184
+		node_185 [label="Identifier\npct_of_category" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_173 -> node_185
+		node_186 [label="Alias\nLAG(sale_amount, 1) OVER (PART..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_141 -> node_186
+		node_187 [label="Window\nLAG(sale_amount, 1) OVER (PART..." fillcolor="#F0E68C" shape=box style="rounded,filled"]
+		node_186 -> node_187
+		node_188 [label="Lag\nLAG(sale_amount, 1)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+		node_187 -> node_188
+		node_189 [label="Column\nsale_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_188 -> node_189
+		node_190 [label="Identifier\nsale_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_189 -> node_190
+		node_191 [label="Literal\n1" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_188 -> node_191
+		node_192 [label="Column\nproduct_category" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_187 -> node_192
+		node_193 [label="Identifier\nproduct_category" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_192 -> node_193
+		node_194 [label="Order\nORDER BY ..." fillcolor="#E6E6FA" shape=box style="rounded,filled"]
+		node_187 -> node_194
+		node_195 [label="Ordered\nsale_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_194 -> node_195
+		node_196 [label="Column\nsale_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_195 -> node_196
+		node_197 [label="Identifier\nsale_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_196 -> node_197
+		node_198 [label="Identifier\nprev_sale" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_186 -> node_198
+		node_199 [label="Alias\nLEAD(sale_amount, 1) OVER (PAR..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_141 -> node_199
+		node_200 [label="Window\nLEAD(sale_amount, 1) OVER (PAR..." fillcolor="#F0E68C" shape=box style="rounded,filled"]
+		node_199 -> node_200
+		node_201 [label="Lead\nLEAD(sale_amount, 1)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+		node_200 -> node_201
+		node_202 [label="Column\nsale_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_201 -> node_202
+		node_203 [label="Identifier\nsale_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_202 -> node_203
+		node_204 [label="Literal\n1" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_201 -> node_204
+		node_205 [label="Column\nproduct_category" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_200 -> node_205
+		node_206 [label="Identifier\nproduct_category" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_205 -> node_206
+		node_207 [label="Order\nORDER BY ..." fillcolor="#E6E6FA" shape=box style="rounded,filled"]
+		node_200 -> node_207
+		node_208 [label="Ordered\nsale_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_207 -> node_208
+		node_209 [label="Column\nsale_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_208 -> node_209
+		node_210 [label="Identifier\nsale_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_209 -> node_210
+		node_211 [label="Identifier\nnext_sale" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_199 -> node_211
+		node_212 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_141 -> node_212
+		node_213 [label="Table\nsales\n[8 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+		node_212 -> node_213
+		node_214 [label="Identifier\nsales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_213 -> node_214
+		node_215 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+		node_141 -> node_215
+		node_216 [label="Between\nsale_date BETWEEN '2024-01-01'..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_215 -> node_216
+		node_217 [label="Column\nsale_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+		node_216 -> node_217
+		node_218 [label="Identifier\nsale_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_217 -> node_218
+		node_219 [label="Literal\n2024-01-01" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_216 -> node_219
+		node_220 [label="Literal\n2024-12-31" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+		node_216 -> node_220
+	}
+	node_0 -> node_10 [label="feeds into" color=red fontcolor=red style=dashed]
+	node_10 -> node_20 [label="transforms to" color=red fontcolor=red style=dashed]
+}

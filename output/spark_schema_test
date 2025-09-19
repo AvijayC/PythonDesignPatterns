@@ -1,0 +1,63 @@
+digraph SQL_AST {
+	bgcolor=white rankdir=TB
+	node [fontname=Arial shape=box style="rounded,filled"]
+	edge [fontname=Arial fontsize=10]
+	validation_error [label="⚠️ Invalid columns:\n  products: inventory_value\n" fillcolor="#FFD700" shape=note style=filled]
+	node_0 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_1 [label="Column\nproduct_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_0 -> node_1
+	node_2 [label="Identifier\nproduct_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_1 -> node_2
+	node_3 [label="Column\nproduct_name" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_0 -> node_3
+	node_4 [label="Identifier\nproduct_name" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_3 -> node_4
+	node_5 [label="Alias\nunit_price * stock_quantity AS..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_5
+	node_6 [label="Mul\nunit_price * stock_quantity" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_5 -> node_6
+	node_7 [label="Column\nunit_price" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_6 -> node_7
+	node_8 [label="Identifier\nunit_price" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_7 -> node_8
+	node_9 [label="Column\nstock_quantity" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_6 -> node_9
+	node_10 [label="Identifier\nstock_quantity" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_9 -> node_10
+	node_11 [label="Identifier\ninventory_value" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_5 -> node_11
+	node_12 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_12
+	node_13 [label="Table\nproducts\n[5 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_12 -> node_13
+	node_14 [label="Identifier\nproducts" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_13 -> node_14
+	node_15 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_0 -> node_15
+	node_16 [label="And\ncategory = 'Electronics' AND s..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_15 -> node_16
+	node_17 [label="EQ\ncategory = 'Electronics'" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_16 -> node_17
+	node_18 [label="Column\ncategory" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_17 -> node_18
+	node_19 [label="Identifier\ncategory" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_18 -> node_19
+	node_20 [label="Literal\nElectronics" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_17 -> node_20
+	node_21 [label="GT\nstock_quantity > 0" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_16 -> node_21
+	node_22 [label="Column\nstock_quantity" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_21 -> node_22
+	node_23 [label="Identifier\nstock_quantity" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_22 -> node_23
+	node_24 [label="Literal\n0" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_21 -> node_24
+	node_25 [label="Order\nORDER BY ..." fillcolor="#E6E6FA" shape=box style="rounded,filled"]
+	node_0 -> node_25
+	node_26 [label="Ordered\ninventory_value DESC" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_25 -> node_26
+	node_27 [label="Column\ninventory_value" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_26 -> node_27
+	node_28 [label="Identifier\ninventory_value" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_27 -> node_28
+}

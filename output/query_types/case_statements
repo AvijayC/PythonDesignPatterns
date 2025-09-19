@@ -1,0 +1,363 @@
+digraph SQL_AST {
+	bgcolor=white rankdir=TB
+	node [fontname=Arial shape=box style="rounded,filled"]
+	edge [fontname=Arial fontsize=10]
+	validation_error [label="⚠️ Invalid columns:\n  orders: day, day, day\n  customers: customer_type, customer_type\n" fillcolor="#FFD700" shape=note style=filled]
+	node_0 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_1 [label="Column\no.order_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_0 -> node_1
+	node_2 [label="Identifier\norder_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_1 -> node_2
+	node_3 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_1 -> node_3
+	node_4 [label="Column\no.customer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_0 -> node_4
+	node_5 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_4 -> node_5
+	node_6 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_4 -> node_6
+	node_7 [label="Column\no.order_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_0 -> node_7
+	node_8 [label="Identifier\norder_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_7 -> node_8
+	node_9 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_7 -> node_9
+	node_10 [label="Column\no.total_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_0 -> node_10
+	node_11 [label="Identifier\ntotal_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_10 -> node_11
+	node_12 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_10 -> node_12
+	node_13 [label="Alias\nCASE WHEN o.total_amount >= 10..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_13
+	node_14 [label="Case\nCASE WHEN o.total_amount >= 10..." fillcolor="#FFE4B5" shape=box style="rounded,filled"]
+	node_13 -> node_14
+	node_15 [label="If\nCASE WHEN o.total_amount >= 10..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_14 -> node_15
+	node_16 [label="GTE\no.total_amount >= 1000" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_15 -> node_16
+	node_17 [label="Column\no.total_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_16 -> node_17
+	node_18 [label="Identifier\ntotal_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_17 -> node_18
+	node_19 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_17 -> node_19
+	node_20 [label="Literal\n1000" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_16 -> node_20
+	node_21 [label="Literal\nLarge" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_15 -> node_21
+	node_22 [label="If\nCASE WHEN o.total_amount >= 50..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_14 -> node_22
+	node_23 [label="GTE\no.total_amount >= 500" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_22 -> node_23
+	node_24 [label="Column\no.total_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_23 -> node_24
+	node_25 [label="Identifier\ntotal_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_24 -> node_25
+	node_26 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_24 -> node_26
+	node_27 [label="Literal\n500" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_23 -> node_27
+	node_28 [label="Literal\nMedium" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_22 -> node_28
+	node_29 [label="If\nCASE WHEN o.total_amount >= 10..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_14 -> node_29
+	node_30 [label="GTE\no.total_amount >= 100" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_29 -> node_30
+	node_31 [label="Column\no.total_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_30 -> node_31
+	node_32 [label="Identifier\ntotal_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_31 -> node_32
+	node_33 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_31 -> node_33
+	node_34 [label="Literal\n100" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_30 -> node_34
+	node_35 [label="Literal\nSmall" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_29 -> node_35
+	node_36 [label="Literal\nMicro" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_14 -> node_36
+	node_37 [label="Identifier\norder_size" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_13 -> node_37
+	node_38 [label="Alias\nCASE WHEN DATEDIFF(day, o.orde..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_38
+	node_39 [label="Case\nCASE WHEN DATEDIFF(day, o.orde..." fillcolor="#FFE4B5" shape=box style="rounded,filled"]
+	node_38 -> node_39
+	node_40 [label="If\nCASE WHEN DATEDIFF(day, o.orde..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_39 -> node_40
+	node_41 [label="LTE\nDATEDIFF(day, o.order_date, GE..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_40 -> node_41
+	node_42 [label="DateDiff\nDATEDIFF(day, o.order_date, GE..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_41 -> node_42
+	node_43 [label="Column\nday" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_42 -> node_43
+	node_44 [label="Identifier\nday" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_43 -> node_44
+	node_45 [label="Column\no.order_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_42 -> node_45
+	node_46 [label="Identifier\norder_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_45 -> node_46
+	node_47 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_45 -> node_47
+	node_48 [label="Anonymous\nGETDATE()" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_42 -> node_48
+	node_49 [label="Literal\n7" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_41 -> node_49
+	node_50 [label="Literal\nRecent" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_40 -> node_50
+	node_51 [label="If\nCASE WHEN DATEDIFF(day, o.orde..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_39 -> node_51
+	node_52 [label="LTE\nDATEDIFF(day, o.order_date, GE..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_51 -> node_52
+	node_53 [label="DateDiff\nDATEDIFF(day, o.order_date, GE..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_52 -> node_53
+	node_54 [label="Column\nday" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_53 -> node_54
+	node_55 [label="Identifier\nday" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_54 -> node_55
+	node_56 [label="Column\no.order_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_53 -> node_56
+	node_57 [label="Identifier\norder_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_56 -> node_57
+	node_58 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_56 -> node_58
+	node_59 [label="Anonymous\nGETDATE()" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_53 -> node_59
+	node_60 [label="Literal\n30" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_52 -> node_60
+	node_61 [label="Literal\nThis Month" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_51 -> node_61
+	node_62 [label="If\nCASE WHEN DATEDIFF(day, o.orde..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_39 -> node_62
+	node_63 [label="LTE\nDATEDIFF(day, o.order_date, GE..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_62 -> node_63
+	node_64 [label="DateDiff\nDATEDIFF(day, o.order_date, GE..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_63 -> node_64
+	node_65 [label="Column\nday" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_64 -> node_65
+	node_66 [label="Identifier\nday" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_65 -> node_66
+	node_67 [label="Column\no.order_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_64 -> node_67
+	node_68 [label="Identifier\norder_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_67 -> node_68
+	node_69 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_67 -> node_69
+	node_70 [label="Anonymous\nGETDATE()" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_64 -> node_70
+	node_71 [label="Literal\n90" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_63 -> node_71
+	node_72 [label="Literal\nThis Quarter" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_62 -> node_72
+	node_73 [label="Literal\nOlder" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_39 -> node_73
+	node_74 [label="Identifier\nrecency" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_38 -> node_74
+	node_75 [label="Alias\nCASE WHEN c.customer_type = 'P..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_75
+	node_76 [label="Case\nCASE WHEN c.customer_type = 'P..." fillcolor="#FFE4B5" shape=box style="rounded,filled"]
+	node_75 -> node_76
+	node_77 [label="If\nCASE WHEN c.customer_type = 'P..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_76 -> node_77
+	node_78 [label="And\nc.customer_type = 'Premium' AN..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_77 -> node_78
+	node_79 [label="EQ\nc.customer_type = 'Premium'" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_78 -> node_79
+	node_80 [label="Column\nc.customer_type" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_79 -> node_80
+	node_81 [label="Identifier\ncustomer_type" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_80 -> node_81
+	node_82 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_80 -> node_82
+	node_83 [label="Literal\nPremium" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_79 -> node_83
+	node_84 [label="GT\no.total_amount > 500" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_78 -> node_84
+	node_85 [label="Column\no.total_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_84 -> node_85
+	node_86 [label="Identifier\ntotal_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_85 -> node_86
+	node_87 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_85 -> node_87
+	node_88 [label="Literal\n500" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_84 -> node_88
+	node_89 [label="Mul\no.total_amount * 0.9" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_77 -> node_89
+	node_90 [label="Column\no.total_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_89 -> node_90
+	node_91 [label="Identifier\ntotal_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_90 -> node_91
+	node_92 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_90 -> node_92
+	node_93 [label="Literal\n0.9" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_89 -> node_93
+	node_94 [label="If\nCASE WHEN c.customer_type = 'R..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_76 -> node_94
+	node_95 [label="And\nc.customer_type = 'Regular' AN..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_94 -> node_95
+	node_96 [label="EQ\nc.customer_type = 'Regular'" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_95 -> node_96
+	node_97 [label="Column\nc.customer_type" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_96 -> node_97
+	node_98 [label="Identifier\ncustomer_type" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_97 -> node_98
+	node_99 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_97 -> node_99
+	node_100 [label="Literal\nRegular" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_96 -> node_100
+	node_101 [label="GT\no.total_amount > 1000" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_95 -> node_101
+	node_102 [label="Column\no.total_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_101 -> node_102
+	node_103 [label="Identifier\ntotal_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_102 -> node_103
+	node_104 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_102 -> node_104
+	node_105 [label="Literal\n1000" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_101 -> node_105
+	node_106 [label="Mul\no.total_amount * 0.95" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_94 -> node_106
+	node_107 [label="Column\no.total_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_106 -> node_107
+	node_108 [label="Identifier\ntotal_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_107 -> node_108
+	node_109 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_107 -> node_109
+	node_110 [label="Literal\n0.95" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_106 -> node_110
+	node_111 [label="Column\no.total_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_76 -> node_111
+	node_112 [label="Identifier\ntotal_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_111 -> node_112
+	node_113 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_111 -> node_113
+	node_114 [label="Identifier\ndiscounted_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_75 -> node_114
+	node_115 [label="Alias\nCASE WHEN EXISTS(SELECT 1 FROM..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_115
+	node_116 [label="Case\nCASE WHEN EXISTS(SELECT 1 FROM..." fillcolor="#FFE4B5" shape=box style="rounded,filled"]
+	node_115 -> node_116
+	node_117 [label="If\nCASE WHEN EXISTS(SELECT 1 FROM..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_116 -> node_117
+	node_118 [label="Exists\nEXISTS(SELECT 1 FROM order_ite..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_117 -> node_118
+	node_119 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_118 -> node_119
+	node_120 [label="Literal\n1" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_119 -> node_120
+	node_121 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_119 -> node_121
+	node_122 [label="Table\norder_items AS oi\n[7 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_121 -> node_122
+	node_123 [label="Identifier\norder_items" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_122 -> node_123
+	node_124 [label="TableAlias\noi" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_122 -> node_124
+	node_125 [label="Identifier\noi" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_124 -> node_125
+	node_126 [label="Join\nJOIN products AS p ON oi.produ..." fillcolor="#F08080" shape=box style="rounded,filled"]
+	node_119 -> node_126
+	node_127 [label="Table\nproducts AS p\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_126 -> node_127
+	node_128 [label="Identifier\nproducts" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_127 -> node_128
+	node_129 [label="TableAlias\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_127 -> node_129
+	node_130 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_129 -> node_130
+	node_131 [label="EQ\noi.product_id = p.product_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_126 -> node_131
+	node_132 [label="Column\noi.product_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_131 -> node_132
+	node_133 [label="Identifier\nproduct_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_132 -> node_133
+	node_134 [label="Identifier\noi" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_132 -> node_134
+	node_135 [label="Column\np.product_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_131 -> node_135
+	node_136 [label="Identifier\nproduct_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_135 -> node_136
+	node_137 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_135 -> node_137
+	node_138 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_119 -> node_138
+	node_139 [label="And\noi.order_id = o.order_id AND p..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_138 -> node_139
+	node_140 [label="EQ\noi.order_id = o.order_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_139 -> node_140
+	node_141 [label="Column\noi.order_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_140 -> node_141
+	node_142 [label="Identifier\norder_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_141 -> node_142
+	node_143 [label="Identifier\noi" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_141 -> node_143
+	node_144 [label="Column\no.order_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_140 -> node_144
+	node_145 [label="Identifier\norder_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_144 -> node_145
+	node_146 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_144 -> node_146
+	node_147 [label="EQ\np.category = 'Electronics'" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_139 -> node_147
+	node_148 [label="Column\np.category" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_147 -> node_148
+	node_149 [label="Identifier\ncategory" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_148 -> node_149
+	node_150 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_148 -> node_150
+	node_151 [label="Literal\nElectronics" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_147 -> node_151
+	node_152 [label="Literal\nElectronics Order" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_117 -> node_152
+	node_153 [label="Literal\nOther" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_116 -> node_153
+	node_154 [label="Identifier\norder_category" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_115 -> node_154
+	node_155 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_155
+	node_156 [label="Table\norders AS o\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_155 -> node_156
+	node_157 [label="Identifier\norders" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_156 -> node_157
+	node_158 [label="TableAlias\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_156 -> node_158
+	node_159 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_158 -> node_159
+	node_160 [label="Join\nJOIN customers AS c ON o.custo..." fillcolor="#F08080" shape=box style="rounded,filled"]
+	node_0 -> node_160
+	node_161 [label="Table\ncustomers AS c\n[8 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_160 -> node_161
+	node_162 [label="Identifier\ncustomers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_161 -> node_162
+	node_163 [label="TableAlias\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_161 -> node_163
+	node_164 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_163 -> node_164
+	node_165 [label="EQ\no.customer_id = c.customer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_160 -> node_165
+	node_166 [label="Column\no.customer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_165 -> node_166
+	node_167 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_166 -> node_167
+	node_168 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_166 -> node_168
+	node_169 [label="Column\nc.customer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_165 -> node_169
+	node_170 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_169 -> node_170
+	node_171 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_169 -> node_171
+	node_172 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_0 -> node_172
+	node_173 [label="In\no.status IN ('completed', 'shi..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_172 -> node_173
+	node_174 [label="Column\no.status" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_173 -> node_174
+	node_175 [label="Identifier\nstatus" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_174 -> node_175
+	node_176 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_174 -> node_176
+	node_177 [label="Literal\ncompleted" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_173 -> node_177
+	node_178 [label="Literal\nshipped" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_173 -> node_178
+}

@@ -1,0 +1,345 @@
+digraph SQL_AST {
+	bgcolor=white rankdir=TB
+	node [fontname=Arial shape=box style="rounded,filled"]
+	edge [fontname=Arial fontsize=10]
+	validation_error [label="⚠️ Invalid columns:\n  customers: customer_type, total_purchases, total_purchases, order_count, month, order_date, month, month\n" fillcolor="#FFD700" shape=note style=filled]
+	node_0 [label="Union\nWITH high_value_customers AS (..." fillcolor="#87CEEB" shape=box style="rounded,filled"]
+	node_1 [label="Union\nSELECT * FROM high_value_custo..." fillcolor="#87CEEB" shape=box style="rounded,filled"]
+	node_0 -> node_1
+	node_2 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_1 -> node_2
+	node_3 [label="Star\n*" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_2 -> node_3
+	node_4 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_2 -> node_4
+	node_5 [label="Table\nhigh_value_customers" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_4 -> node_5
+	node_6 [label="Identifier\nhigh_value_customers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_5 -> node_6
+	node_7 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_1 -> node_7
+	node_8 [label="Star\n*" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_7 -> node_8
+	node_9 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_7 -> node_9
+	node_10 [label="Table\nfrequent_customers" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_9 -> node_10
+	node_11 [label="Identifier\nfrequent_customers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_10 -> node_11
+	node_12 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_0 -> node_12
+	node_13 [label="Column\ncustomer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_12 -> node_13
+	node_14 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_13 -> node_14
+	node_15 [label="Alias\n'New' AS customer_type" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_12 -> node_15
+	node_16 [label="Literal\nNew" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_15 -> node_16
+	node_17 [label="Identifier\ncustomer_type" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_15 -> node_17
+	node_18 [label="Alias\n0 AS total_purchases" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_12 -> node_18
+	node_19 [label="Literal\n0" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_18 -> node_19
+	node_20 [label="Identifier\ntotal_purchases" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_18 -> node_20
+	node_21 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_12 -> node_21
+	node_22 [label="Table\ncustomers\n[8 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_21 -> node_22
+	node_23 [label="Identifier\ncustomers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_22 -> node_23
+	node_24 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_12 -> node_24
+	node_25 [label="And\ncreated_date >= DATEADD(month,..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_24 -> node_25
+	node_26 [label="GTE\ncreated_date >= DATEADD(month,..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_25 -> node_26
+	node_27 [label="Column\ncreated_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_26 -> node_27
+	node_28 [label="Identifier\ncreated_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_27 -> node_28
+	node_29 [label="Anonymous\nDATEADD(month, -1, GETDATE())" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_26 -> node_29
+	node_30 [label="Column\nmonth" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_29 -> node_30
+	node_31 [label="Identifier\nmonth" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_30 -> node_31
+	node_32 [label="Neg\n-1" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_29 -> node_32
+	node_33 [label="Literal\n1" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_32 -> node_33
+	node_34 [label="Anonymous\nGETDATE()" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_29 -> node_34
+	node_35 [label="Not\nNOT customer_id IN (SELECT cus..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_25 -> node_35
+	node_36 [label="In\ncustomer_id IN (SELECT custome..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_35 -> node_36
+	node_37 [label="Column\ncustomer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_36 -> node_37
+	node_38 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_37 -> node_38
+	node_39 [label="Subquery\n(SELECT customer_id FROM high_..." fillcolor="#DDA0DD" shape=box3d style="rounded,filled"]
+	node_36 -> node_39
+	node_40 [label="Union\nSELECT customer_id FROM high_v..." fillcolor="#87CEEB" shape=box style="rounded,filled"]
+	node_39 -> node_40
+	node_41 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_40 -> node_41
+	node_42 [label="Column\ncustomer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_41 -> node_42
+	node_43 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_42 -> node_43
+	node_44 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_41 -> node_44
+	node_45 [label="Table\nhigh_value_customers" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_44 -> node_45
+	node_46 [label="Identifier\nhigh_value_customers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_45 -> node_46
+	node_47 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_40 -> node_47
+	node_48 [label="Column\ncustomer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_47 -> node_48
+	node_49 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_48 -> node_49
+	node_50 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_47 -> node_50
+	node_51 [label="Table\nfrequent_customers" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_50 -> node_51
+	node_52 [label="Identifier\nfrequent_customers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_51 -> node_52
+	node_53 [label="Order\nORDER BY ..." fillcolor="#E6E6FA" shape=box style="rounded,filled"]
+	node_0 -> node_53
+	node_54 [label="Ordered\ncustomer_type" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_53 -> node_54
+	node_55 [label="Column\ncustomer_type" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_54 -> node_55
+	node_56 [label="Identifier\ncustomer_type" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_55 -> node_56
+	node_57 [label="Ordered\ntotal_purchases DESC" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_53 -> node_57
+	node_58 [label="Column\ntotal_purchases" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_57 -> node_58
+	node_59 [label="Identifier\ntotal_purchases" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_58 -> node_59
+	node_60 [label="With\nWITH high_value_customers AS (..." fillcolor="#E6E6E6" shape=component style="rounded,filled"]
+	node_0 -> node_60
+	node_61 [label="CTE\nhigh_value_customers AS (SELEC..." fillcolor="#B0C4DE" shape=component style="rounded,filled"]
+	node_60 -> node_61
+	node_62 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_61 -> node_62
+	node_63 [label="Column\ncustomer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_62 -> node_63
+	node_64 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_63 -> node_64
+	node_65 [label="Alias\n'High Value' AS customer_type" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_62 -> node_65
+	node_66 [label="Literal\nHigh Value" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_65 -> node_66
+	node_67 [label="Identifier\ncustomer_type" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_65 -> node_67
+	node_68 [label="Column\ntotal_purchases" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_62 -> node_68
+	node_69 [label="Identifier\ntotal_purchases" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_68 -> node_69
+	node_70 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_62 -> node_70
+	node_71 [label="Subquery\n(SELECT c.customer_id, SUM(o.t..." fillcolor="#DDA0DD" shape=box3d style="rounded,filled"]
+	node_70 -> node_71
+	node_72 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_71 -> node_72
+	node_73 [label="Column\nc.customer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_72 -> node_73
+	node_74 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_73 -> node_74
+	node_75 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_73 -> node_75
+	node_76 [label="Alias\nSUM(o.total_amount) AS total_p..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_72 -> node_76
+	node_77 [label="Sum\nSUM(o.total_amount)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_76 -> node_77
+	node_78 [label="Column\no.total_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_77 -> node_78
+	node_79 [label="Identifier\ntotal_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_78 -> node_79
+	node_80 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_78 -> node_80
+	node_81 [label="Identifier\ntotal_purchases" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_76 -> node_81
+	node_82 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_72 -> node_82
+	node_83 [label="Table\ncustomers AS c\n[8 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_82 -> node_83
+	node_84 [label="Identifier\ncustomers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_83 -> node_84
+	node_85 [label="TableAlias\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_83 -> node_85
+	node_86 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_85 -> node_86
+	node_87 [label="Join\nJOIN orders AS o ON c.customer..." fillcolor="#F08080" shape=box style="rounded,filled"]
+	node_72 -> node_87
+	node_88 [label="Table\norders AS o\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_87 -> node_88
+	node_89 [label="Identifier\norders" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_88 -> node_89
+	node_90 [label="TableAlias\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_88 -> node_90
+	node_91 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_90 -> node_91
+	node_92 [label="EQ\nc.customer_id = o.customer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_87 -> node_92
+	node_93 [label="Column\nc.customer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_92 -> node_93
+	node_94 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_93 -> node_94
+	node_95 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_93 -> node_95
+	node_96 [label="Column\no.customer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_92 -> node_96
+	node_97 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_96 -> node_97
+	node_98 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_96 -> node_98
+	node_99 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_72 -> node_99
+	node_100 [label="GTE\no.order_date >= DATEADD(month,..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_99 -> node_100
+	node_101 [label="Column\no.order_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_100 -> node_101
+	node_102 [label="Identifier\norder_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_101 -> node_102
+	node_103 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_101 -> node_103
+	node_104 [label="Anonymous\nDATEADD(month, -12, GETDATE())" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_100 -> node_104
+	node_105 [label="Column\nmonth" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_104 -> node_105
+	node_106 [label="Identifier\nmonth" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_105 -> node_106
+	node_107 [label="Neg\n-12" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_104 -> node_107
+	node_108 [label="Literal\n12" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_107 -> node_108
+	node_109 [label="Anonymous\nGETDATE()" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_104 -> node_109
+	node_110 [label="Group\nGROUP BY ..." fillcolor="#FFB6C1" shape=box style="rounded,filled"]
+	node_72 -> node_110
+	node_111 [label="Column\nc.customer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_110 -> node_111
+	node_112 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_111 -> node_112
+	node_113 [label="Identifier\nc" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_111 -> node_113
+	node_114 [label="Having\nHAVING SUM(o.total_amount) > 1..." fillcolor="#FAFAD2" shape=box style="rounded,filled"]
+	node_72 -> node_114
+	node_115 [label="GT\nSUM(o.total_amount) > 10000" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_114 -> node_115
+	node_116 [label="Sum\nSUM(o.total_amount)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_115 -> node_116
+	node_117 [label="Column\no.total_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_116 -> node_117
+	node_118 [label="Identifier\ntotal_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_117 -> node_118
+	node_119 [label="Identifier\no" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_117 -> node_119
+	node_120 [label="Literal\n10000" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_115 -> node_120
+	node_121 [label="TableAlias\nt1" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_71 -> node_121
+	node_122 [label="Identifier\nt1" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_121 -> node_122
+	node_123 [label="TableAlias\nhigh_value_customers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_61 -> node_123
+	node_124 [label="Identifier\nhigh_value_customers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_123 -> node_124
+	node_125 [label="CTE\nfrequent_customers AS (SELECT ..." fillcolor="#B0C4DE" shape=component style="rounded,filled"]
+	node_60 -> node_125
+	node_126 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_125 -> node_126
+	node_127 [label="Column\ncustomer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_126 -> node_127
+	node_128 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_127 -> node_128
+	node_129 [label="Alias\n'Frequent' AS customer_type" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_126 -> node_129
+	node_130 [label="Literal\nFrequent" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_129 -> node_130
+	node_131 [label="Identifier\ncustomer_type" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_129 -> node_131
+	node_132 [label="Alias\norder_count AS total_purchases" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_126 -> node_132
+	node_133 [label="Column\norder_count" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_132 -> node_133
+	node_134 [label="Identifier\norder_count" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_133 -> node_134
+	node_135 [label="Identifier\ntotal_purchases" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_132 -> node_135
+	node_136 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_126 -> node_136
+	node_137 [label="Subquery\n(SELECT customer_id, COUNT(*) ..." fillcolor="#DDA0DD" shape=box3d style="rounded,filled"]
+	node_136 -> node_137
+	node_138 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_137 -> node_138
+	node_139 [label="Column\ncustomer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_138 -> node_139
+	node_140 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_139 -> node_140
+	node_141 [label="Alias\nCOUNT(*) AS order_count" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_138 -> node_141
+	node_142 [label="Count\nCOUNT(*)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_141 -> node_142
+	node_143 [label="Star\n*" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_142 -> node_143
+	node_144 [label="Identifier\norder_count" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_141 -> node_144
+	node_145 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_138 -> node_145
+	node_146 [label="Table\norders\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_145 -> node_146
+	node_147 [label="Identifier\norders" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_146 -> node_147
+	node_148 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_138 -> node_148
+	node_149 [label="GTE\norder_date >= DATEADD(month, -..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_148 -> node_149
+	node_150 [label="Column\norder_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_149 -> node_150
+	node_151 [label="Identifier\norder_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_150 -> node_151
+	node_152 [label="Anonymous\nDATEADD(month, -6, GETDATE())" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_149 -> node_152
+	node_153 [label="Column\nmonth" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_152 -> node_153
+	node_154 [label="Identifier\nmonth" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_153 -> node_154
+	node_155 [label="Neg\n-6" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_152 -> node_155
+	node_156 [label="Literal\n6" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_155 -> node_156
+	node_157 [label="Anonymous\nGETDATE()" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_152 -> node_157
+	node_158 [label="Group\nGROUP BY ..." fillcolor="#FFB6C1" shape=box style="rounded,filled"]
+	node_138 -> node_158
+	node_159 [label="Column\ncustomer_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_158 -> node_159
+	node_160 [label="Identifier\ncustomer_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_159 -> node_160
+	node_161 [label="Having\nHAVING COUNT(*) > 20" fillcolor="#FAFAD2" shape=box style="rounded,filled"]
+	node_138 -> node_161
+	node_162 [label="GT\nCOUNT(*) > 20" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_161 -> node_162
+	node_163 [label="Count\nCOUNT(*)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_162 -> node_163
+	node_164 [label="Star\n*" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_163 -> node_164
+	node_165 [label="Literal\n20" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_162 -> node_165
+	node_166 [label="TableAlias\nt2" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_137 -> node_166
+	node_167 [label="Identifier\nt2" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_166 -> node_167
+	node_168 [label="TableAlias\nfrequent_customers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_125 -> node_168
+	node_169 [label="Identifier\nfrequent_customers" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_168 -> node_169
+}

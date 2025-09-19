@@ -1,0 +1,325 @@
+digraph SQL_AST {
+	bgcolor=white rankdir=TB
+	node [fontname=Arial shape=box style="rounded,filled"]
+	edge [fontname=Arial fontsize=10]
+	validation_error [label="⚠️ Invalid columns:\n  products: sales_amount, sales_amount, total_sales, sales_amount, sales_amount, sales_amount, sales_amount, sales_amount, sales_amount, sales_amount, month_num, month_num, month_num, month_num, month_num, month_num\n" fillcolor="#FFD700" shape=note style=filled]
+	node_0 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_1 [label="Column\nproduct_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_0 -> node_1
+	node_2 [label="Identifier\nproduct_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_1 -> node_2
+	node_3 [label="Column\nproduct_name" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_0 -> node_3
+	node_4 [label="Identifier\nproduct_name" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_3 -> node_4
+	node_5 [label="Alias\nMAX(CASE WHEN month_num = 1 TH..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_5
+	node_6 [label="Max\nMAX(CASE WHEN month_num = 1 TH..." fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_5 -> node_6
+	node_7 [label="Case\nCASE WHEN month_num = 1 THEN s..." fillcolor="#FFE4B5" shape=box style="rounded,filled"]
+	node_6 -> node_7
+	node_8 [label="If\nCASE WHEN month_num = 1 THEN s..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_7 -> node_8
+	node_9 [label="EQ\nmonth_num = 1" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_8 -> node_9
+	node_10 [label="Column\nmonth_num" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_9 -> node_10
+	node_11 [label="Identifier\nmonth_num" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_10 -> node_11
+	node_12 [label="Literal\n1" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_9 -> node_12
+	node_13 [label="Column\nsales_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_8 -> node_13
+	node_14 [label="Identifier\nsales_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_13 -> node_14
+	node_15 [label="Literal\n0" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_7 -> node_15
+	node_16 [label="Identifier\njan_sales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_5 -> node_16
+	node_17 [label="Alias\nMAX(CASE WHEN month_num = 2 TH..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_17
+	node_18 [label="Max\nMAX(CASE WHEN month_num = 2 TH..." fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_17 -> node_18
+	node_19 [label="Case\nCASE WHEN month_num = 2 THEN s..." fillcolor="#FFE4B5" shape=box style="rounded,filled"]
+	node_18 -> node_19
+	node_20 [label="If\nCASE WHEN month_num = 2 THEN s..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_19 -> node_20
+	node_21 [label="EQ\nmonth_num = 2" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_20 -> node_21
+	node_22 [label="Column\nmonth_num" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_21 -> node_22
+	node_23 [label="Identifier\nmonth_num" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_22 -> node_23
+	node_24 [label="Literal\n2" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_21 -> node_24
+	node_25 [label="Column\nsales_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_20 -> node_25
+	node_26 [label="Identifier\nsales_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_25 -> node_26
+	node_27 [label="Literal\n0" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_19 -> node_27
+	node_28 [label="Identifier\nfeb_sales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_17 -> node_28
+	node_29 [label="Alias\nMAX(CASE WHEN month_num = 3 TH..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_29
+	node_30 [label="Max\nMAX(CASE WHEN month_num = 3 TH..." fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_29 -> node_30
+	node_31 [label="Case\nCASE WHEN month_num = 3 THEN s..." fillcolor="#FFE4B5" shape=box style="rounded,filled"]
+	node_30 -> node_31
+	node_32 [label="If\nCASE WHEN month_num = 3 THEN s..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_31 -> node_32
+	node_33 [label="EQ\nmonth_num = 3" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_32 -> node_33
+	node_34 [label="Column\nmonth_num" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_33 -> node_34
+	node_35 [label="Identifier\nmonth_num" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_34 -> node_35
+	node_36 [label="Literal\n3" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_33 -> node_36
+	node_37 [label="Column\nsales_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_32 -> node_37
+	node_38 [label="Identifier\nsales_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_37 -> node_38
+	node_39 [label="Literal\n0" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_31 -> node_39
+	node_40 [label="Identifier\nmar_sales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_29 -> node_40
+	node_41 [label="Alias\nMAX(CASE WHEN month_num = 4 TH..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_41
+	node_42 [label="Max\nMAX(CASE WHEN month_num = 4 TH..." fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_41 -> node_42
+	node_43 [label="Case\nCASE WHEN month_num = 4 THEN s..." fillcolor="#FFE4B5" shape=box style="rounded,filled"]
+	node_42 -> node_43
+	node_44 [label="If\nCASE WHEN month_num = 4 THEN s..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_43 -> node_44
+	node_45 [label="EQ\nmonth_num = 4" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_44 -> node_45
+	node_46 [label="Column\nmonth_num" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_45 -> node_46
+	node_47 [label="Identifier\nmonth_num" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_46 -> node_47
+	node_48 [label="Literal\n4" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_45 -> node_48
+	node_49 [label="Column\nsales_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_44 -> node_49
+	node_50 [label="Identifier\nsales_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_49 -> node_50
+	node_51 [label="Literal\n0" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_43 -> node_51
+	node_52 [label="Identifier\napr_sales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_41 -> node_52
+	node_53 [label="Alias\nMAX(CASE WHEN month_num = 5 TH..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_53
+	node_54 [label="Max\nMAX(CASE WHEN month_num = 5 TH..." fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_53 -> node_54
+	node_55 [label="Case\nCASE WHEN month_num = 5 THEN s..." fillcolor="#FFE4B5" shape=box style="rounded,filled"]
+	node_54 -> node_55
+	node_56 [label="If\nCASE WHEN month_num = 5 THEN s..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_55 -> node_56
+	node_57 [label="EQ\nmonth_num = 5" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_56 -> node_57
+	node_58 [label="Column\nmonth_num" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_57 -> node_58
+	node_59 [label="Identifier\nmonth_num" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_58 -> node_59
+	node_60 [label="Literal\n5" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_57 -> node_60
+	node_61 [label="Column\nsales_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_56 -> node_61
+	node_62 [label="Identifier\nsales_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_61 -> node_62
+	node_63 [label="Literal\n0" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_55 -> node_63
+	node_64 [label="Identifier\nmay_sales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_53 -> node_64
+	node_65 [label="Alias\nMAX(CASE WHEN month_num = 6 TH..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_65
+	node_66 [label="Max\nMAX(CASE WHEN month_num = 6 TH..." fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_65 -> node_66
+	node_67 [label="Case\nCASE WHEN month_num = 6 THEN s..." fillcolor="#FFE4B5" shape=box style="rounded,filled"]
+	node_66 -> node_67
+	node_68 [label="If\nCASE WHEN month_num = 6 THEN s..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_67 -> node_68
+	node_69 [label="EQ\nmonth_num = 6" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_68 -> node_69
+	node_70 [label="Column\nmonth_num" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_69 -> node_70
+	node_71 [label="Identifier\nmonth_num" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_70 -> node_71
+	node_72 [label="Literal\n6" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_69 -> node_72
+	node_73 [label="Column\nsales_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_68 -> node_73
+	node_74 [label="Identifier\nsales_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_73 -> node_74
+	node_75 [label="Literal\n0" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_67 -> node_75
+	node_76 [label="Identifier\njun_sales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_65 -> node_76
+	node_77 [label="Alias\nSUM(sales_amount) AS total_sal..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_77
+	node_78 [label="Sum\nSUM(sales_amount)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_77 -> node_78
+	node_79 [label="Column\nsales_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_78 -> node_79
+	node_80 [label="Identifier\nsales_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_79 -> node_80
+	node_81 [label="Identifier\ntotal_sales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_77 -> node_81
+	node_82 [label="Alias\nAVG(sales_amount) AS avg_month..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_82
+	node_83 [label="Avg\nAVG(sales_amount)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_82 -> node_83
+	node_84 [label="Column\nsales_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_83 -> node_84
+	node_85 [label="Identifier\nsales_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_84 -> node_85
+	node_86 [label="Identifier\navg_monthly_sales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_82 -> node_86
+	node_87 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_87
+	node_88 [label="Subquery\n(SELECT p.product_id, p.produc..." fillcolor="#DDA0DD" shape=box3d style="rounded,filled"]
+	node_87 -> node_88
+	node_89 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_88 -> node_89
+	node_90 [label="Column\np.product_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_89 -> node_90
+	node_91 [label="Identifier\nproduct_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_90 -> node_91
+	node_92 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_90 -> node_92
+	node_93 [label="Column\np.product_name" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_89 -> node_93
+	node_94 [label="Identifier\nproduct_name" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_93 -> node_94
+	node_95 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_93 -> node_95
+	node_96 [label="Alias\nMONTH(s.sale_date) AS month_nu..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_89 -> node_96
+	node_97 [label="Month\nMONTH(s.sale_date)" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_96 -> node_97
+	node_98 [label="Column\ns.sale_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_97 -> node_98
+	node_99 [label="Identifier\nsale_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_98 -> node_99
+	node_100 [label="Identifier\ns" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_98 -> node_100
+	node_101 [label="Identifier\nmonth_num" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_96 -> node_101
+	node_102 [label="Alias\nSUM(s.amount) AS sales_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_89 -> node_102
+	node_103 [label="Sum\nSUM(s.amount)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_102 -> node_103
+	node_104 [label="Column\ns.amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_103 -> node_104
+	node_105 [label="Identifier\namount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_104 -> node_105
+	node_106 [label="Identifier\ns" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_104 -> node_106
+	node_107 [label="Identifier\nsales_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_102 -> node_107
+	node_108 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_89 -> node_108
+	node_109 [label="Table\nproducts AS p\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_108 -> node_109
+	node_110 [label="Identifier\nproducts" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_109 -> node_110
+	node_111 [label="TableAlias\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_109 -> node_111
+	node_112 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_111 -> node_112
+	node_113 [label="Join\nJOIN sales AS s ON p.product_i..." fillcolor="#F08080" shape=box style="rounded,filled"]
+	node_89 -> node_113
+	node_114 [label="Table\nsales AS s\n[8 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_113 -> node_114
+	node_115 [label="Identifier\nsales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_114 -> node_115
+	node_116 [label="TableAlias\ns" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_114 -> node_116
+	node_117 [label="Identifier\ns" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_116 -> node_117
+	node_118 [label="EQ\np.product_id = s.product_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_113 -> node_118
+	node_119 [label="Column\np.product_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_118 -> node_119
+	node_120 [label="Identifier\nproduct_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_119 -> node_120
+	node_121 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_119 -> node_121
+	node_122 [label="Column\ns.product_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_118 -> node_122
+	node_123 [label="Identifier\nproduct_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_122 -> node_123
+	node_124 [label="Identifier\ns" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_122 -> node_124
+	node_125 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_89 -> node_125
+	node_126 [label="EQ\nYEAR(s.sale_date) = 2024" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_125 -> node_126
+	node_127 [label="Year\nYEAR(s.sale_date)" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_126 -> node_127
+	node_128 [label="Column\ns.sale_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_127 -> node_128
+	node_129 [label="Identifier\nsale_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_128 -> node_129
+	node_130 [label="Identifier\ns" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_128 -> node_130
+	node_131 [label="Literal\n2024" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_126 -> node_131
+	node_132 [label="Group\nGROUP BY ..." fillcolor="#FFB6C1" shape=box style="rounded,filled"]
+	node_89 -> node_132
+	node_133 [label="Column\np.product_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_132 -> node_133
+	node_134 [label="Identifier\nproduct_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_133 -> node_134
+	node_135 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_133 -> node_135
+	node_136 [label="Column\np.product_name" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_132 -> node_136
+	node_137 [label="Identifier\nproduct_name" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_136 -> node_137
+	node_138 [label="Identifier\np" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_136 -> node_138
+	node_139 [label="Month\nMONTH(s.sale_date)" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_132 -> node_139
+	node_140 [label="Column\ns.sale_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_139 -> node_140
+	node_141 [label="Identifier\nsale_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_140 -> node_141
+	node_142 [label="Identifier\ns" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_140 -> node_142
+	node_143 [label="TableAlias\nmonthly_sales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_88 -> node_143
+	node_144 [label="Identifier\nmonthly_sales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_143 -> node_144
+	node_145 [label="Group\nGROUP BY ..." fillcolor="#FFB6C1" shape=box style="rounded,filled"]
+	node_0 -> node_145
+	node_146 [label="Column\nproduct_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_145 -> node_146
+	node_147 [label="Identifier\nproduct_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_146 -> node_147
+	node_148 [label="Column\nproduct_name" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_145 -> node_148
+	node_149 [label="Identifier\nproduct_name" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_148 -> node_149
+	node_150 [label="Having\nHAVING SUM(sales_amount) > 100..." fillcolor="#FAFAD2" shape=box style="rounded,filled"]
+	node_0 -> node_150
+	node_151 [label="GT\nSUM(sales_amount) > 1000" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_150 -> node_151
+	node_152 [label="Sum\nSUM(sales_amount)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_151 -> node_152
+	node_153 [label="Column\nsales_amount" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_152 -> node_153
+	node_154 [label="Identifier\nsales_amount" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_153 -> node_154
+	node_155 [label="Literal\n1000" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_151 -> node_155
+	node_156 [label="Order\nORDER BY ..." fillcolor="#E6E6FA" shape=box style="rounded,filled"]
+	node_0 -> node_156
+	node_157 [label="Ordered\ntotal_sales DESC" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_156 -> node_157
+	node_158 [label="Column\ntotal_sales" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_157 -> node_158
+	node_159 [label="Identifier\ntotal_sales" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_158 -> node_159
+}

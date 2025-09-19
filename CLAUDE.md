@@ -12,3 +12,4 @@
 - Goal: Help improve novice Python and programming skills through practical understanding
 - Provide explanations that connect concepts to real-world scenarios
 - Emphasize the "why" behind design decisions, not just the "how"
+- No need to make anything - just explain it so ideally it fits on the screen.

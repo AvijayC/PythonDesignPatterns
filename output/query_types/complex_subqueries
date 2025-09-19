@@ -1,0 +1,265 @@
+digraph SQL_AST {
+	bgcolor=white rankdir=TB
+	node [fontname=Arial shape=box style="rounded,filled"]
+	edge [fontname=Arial fontsize=10]
+	validation_error [label="⚠️ Invalid columns:\n  departments: employee_name, salary, salary\n" fillcolor="#FFD700" shape=note style=filled]
+	node_0 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_1 [label="Column\nd.department_name" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_0 -> node_1
+	node_2 [label="Identifier\ndepartment_name" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_1 -> node_2
+	node_3 [label="Identifier\nd" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_1 -> node_3
+	node_4 [label="Column\nd.location" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_0 -> node_4
+	node_5 [label="Identifier\nlocation" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_4 -> node_5
+	node_6 [label="Identifier\nd" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_4 -> node_6
+	node_7 [label="Alias\n(SELECT COUNT(*) FROM employee..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_7
+	node_8 [label="Subquery\n(SELECT COUNT(*) FROM employee..." fillcolor="#DDA0DD" shape=box3d style="rounded,filled"]
+	node_7 -> node_8
+	node_9 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_8 -> node_9
+	node_10 [label="Count\nCOUNT(*)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_9 -> node_10
+	node_11 [label="Star\n*" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_10 -> node_11
+	node_12 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_9 -> node_12
+	node_13 [label="Table\nemployees AS e\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_12 -> node_13
+	node_14 [label="Identifier\nemployees" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_13 -> node_14
+	node_15 [label="TableAlias\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_13 -> node_15
+	node_16 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_15 -> node_16
+	node_17 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_9 -> node_17
+	node_18 [label="And\ne.department_id = d.department..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_17 -> node_18
+	node_19 [label="EQ\ne.department_id = d.department..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_18 -> node_19
+	node_20 [label="Column\ne.department_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_19 -> node_20
+	node_21 [label="Identifier\ndepartment_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_20 -> node_21
+	node_22 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_20 -> node_22
+	node_23 [label="Column\nd.department_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_19 -> node_23
+	node_24 [label="Identifier\ndepartment_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_23 -> node_24
+	node_25 [label="Identifier\nd" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_23 -> node_25
+	node_26 [label="GT\ne.salary > (SELECT AVG(salary)..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_18 -> node_26
+	node_27 [label="Column\ne.salary" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_26 -> node_27
+	node_28 [label="Identifier\nsalary" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_27 -> node_28
+	node_29 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_27 -> node_29
+	node_30 [label="Subquery\n(SELECT AVG(salary) FROM emplo..." fillcolor="#DDA0DD" shape=box3d style="rounded,filled"]
+	node_26 -> node_30
+	node_31 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_30 -> node_31
+	node_32 [label="Avg\nAVG(salary)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_31 -> node_32
+	node_33 [label="Column\nsalary" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_32 -> node_33
+	node_34 [label="Identifier\nsalary" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_33 -> node_34
+	node_35 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_31 -> node_35
+	node_36 [label="Table\nemployees AS e2\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_35 -> node_36
+	node_37 [label="Identifier\nemployees" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_36 -> node_37
+	node_38 [label="TableAlias\ne2" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_36 -> node_38
+	node_39 [label="Identifier\ne2" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_38 -> node_39
+	node_40 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_31 -> node_40
+	node_41 [label="EQ\ne2.department_id = e.departmen..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_40 -> node_41
+	node_42 [label="Column\ne2.department_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_41 -> node_42
+	node_43 [label="Identifier\ndepartment_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_42 -> node_43
+	node_44 [label="Identifier\ne2" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_42 -> node_44
+	node_45 [label="Column\ne.department_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_41 -> node_45
+	node_46 [label="Identifier\ndepartment_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_45 -> node_46
+	node_47 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_45 -> node_47
+	node_48 [label="Identifier\nabove_avg_employees" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_7 -> node_48
+	node_49 [label="Alias\n(SELECT MAX(e.salary) FROM emp..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_49
+	node_50 [label="Subquery\n(SELECT MAX(e.salary) FROM emp..." fillcolor="#DDA0DD" shape=box3d style="rounded,filled"]
+	node_49 -> node_50
+	node_51 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_50 -> node_51
+	node_52 [label="Max\nMAX(e.salary)" fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_51 -> node_52
+	node_53 [label="Column\ne.salary" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_52 -> node_53
+	node_54 [label="Identifier\nsalary" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_53 -> node_54
+	node_55 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_53 -> node_55
+	node_56 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_51 -> node_56
+	node_57 [label="Table\nemployees AS e\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_56 -> node_57
+	node_58 [label="Identifier\nemployees" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_57 -> node_58
+	node_59 [label="TableAlias\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_57 -> node_59
+	node_60 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_59 -> node_60
+	node_61 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_51 -> node_61
+	node_62 [label="EQ\ne.department_id = d.department..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_61 -> node_62
+	node_63 [label="Column\ne.department_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_62 -> node_63
+	node_64 [label="Identifier\ndepartment_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_63 -> node_64
+	node_65 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_63 -> node_65
+	node_66 [label="Column\nd.department_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_62 -> node_66
+	node_67 [label="Identifier\ndepartment_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_66 -> node_67
+	node_68 [label="Identifier\nd" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_66 -> node_68
+	node_69 [label="Identifier\nmax_salary" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_49 -> node_69
+	node_70 [label="Alias\n(SELECT GROUP_CONCAT(e.employe..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_70
+	node_71 [label="Subquery\n(SELECT GROUP_CONCAT(e.employe..." fillcolor="#DDA0DD" shape=box3d style="rounded,filled"]
+	node_70 -> node_71
+	node_72 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_71 -> node_72
+	node_73 [label="GroupConcat\nGROUP_CONCAT(e.employee_name, ..." fillcolor="#E6E6E6" shape=ellipse style="rounded,filled"]
+	node_72 -> node_73
+	node_74 [label="Column\ne.employee_name" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_73 -> node_74
+	node_75 [label="Identifier\nemployee_name" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_74 -> node_75
+	node_76 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_74 -> node_76
+	node_77 [label="Literal\n, " fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_73 -> node_77
+	node_78 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_72 -> node_78
+	node_79 [label="Subquery\n(SELECT employee_name FROM emp..." fillcolor="#DDA0DD" shape=box3d style="rounded,filled"]
+	node_78 -> node_79
+	node_80 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_79 -> node_80
+	node_81 [label="Column\nemployee_name" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_80 -> node_81
+	node_82 [label="Identifier\nemployee_name" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_81 -> node_82
+	node_83 [label="Limit\nLIMIT 3" fillcolor="#E0FFFF" shape=box style="rounded,filled"]
+	node_80 -> node_83
+	node_84 [label="Literal\n3" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_83 -> node_84
+	node_85 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_80 -> node_85
+	node_86 [label="Table\nemployees\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_85 -> node_86
+	node_87 [label="Identifier\nemployees" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_86 -> node_87
+	node_88 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_80 -> node_88
+	node_89 [label="EQ\ndepartment_id = d.department_i..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_88 -> node_89
+	node_90 [label="Column\ndepartment_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_89 -> node_90
+	node_91 [label="Identifier\ndepartment_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_90 -> node_91
+	node_92 [label="Column\nd.department_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_89 -> node_92
+	node_93 [label="Identifier\ndepartment_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_92 -> node_93
+	node_94 [label="Identifier\nd" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_92 -> node_94
+	node_95 [label="Order\nORDER BY ..." fillcolor="#E6E6FA" shape=box style="rounded,filled"]
+	node_80 -> node_95
+	node_96 [label="Ordered\nsalary DESC" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_95 -> node_96
+	node_97 [label="Column\nsalary" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_96 -> node_97
+	node_98 [label="Identifier\nsalary" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_97 -> node_98
+	node_99 [label="TableAlias\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_79 -> node_99
+	node_100 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_99 -> node_100
+	node_101 [label="Identifier\ntop_earners" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_70 -> node_101
+	node_102 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_0 -> node_102
+	node_103 [label="Table\ndepartments AS d\n[5 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_102 -> node_103
+	node_104 [label="Identifier\ndepartments" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_103 -> node_104
+	node_105 [label="TableAlias\nd" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_103 -> node_105
+	node_106 [label="Identifier\nd" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_105 -> node_106
+	node_107 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_0 -> node_107
+	node_108 [label="Exists\nEXISTS(SELECT 1 FROM employees..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_107 -> node_108
+	node_109 [label="Select\nSELECT ..." fillcolor="#90EE90" shape=box style="rounded,filled"]
+	node_108 -> node_109
+	node_110 [label="Literal\n1" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_109 -> node_110
+	node_111 [label="From\nFROM ..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_109 -> node_111
+	node_112 [label="Table\nemployees AS e\n[9 columns]" fillcolor="#D3D3D3" shape=box style="rounded,filled"]
+	node_111 -> node_112
+	node_113 [label="Identifier\nemployees" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_112 -> node_113
+	node_114 [label="TableAlias\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_112 -> node_114
+	node_115 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_114 -> node_115
+	node_116 [label="Where\nWHERE ..." fillcolor="#FFFFE0" shape=box style="rounded,filled"]
+	node_109 -> node_116
+	node_117 [label="And\ne.department_id = d.department..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_116 -> node_117
+	node_118 [label="EQ\ne.department_id = d.department..." fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_117 -> node_118
+	node_119 [label="Column\ne.department_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_118 -> node_119
+	node_120 [label="Identifier\ndepartment_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_119 -> node_120
+	node_121 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_119 -> node_121
+	node_122 [label="Column\nd.department_id" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_118 -> node_122
+	node_123 [label="Identifier\ndepartment_id" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_122 -> node_123
+	node_124 [label="Identifier\nd" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_122 -> node_124
+	node_125 [label="GTE\ne.hire_date >= '2024-01-01'" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_117 -> node_125
+	node_126 [label="Column\ne.hire_date" fillcolor="#FFFFFF" shape=box style="rounded,filled"]
+	node_125 -> node_126
+	node_127 [label="Identifier\nhire_date" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_126 -> node_127
+	node_128 [label="Identifier\ne" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_126 -> node_128
+	node_129 [label="Literal\n2024-01-01" fillcolor="#E6E6E6" shape=box style="rounded,filled"]
+	node_125 -> node_129
+}
